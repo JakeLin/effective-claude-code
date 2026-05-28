@@ -44,4 +44,4 @@ Open a PR with your proposed Item. The author reviews for principle-level qualit
 
 ## License
 
-MIT
+[CC-BY-4.0](LICENSE). Attribution required; commercial reuse allowed.

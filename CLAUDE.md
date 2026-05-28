@@ -21,6 +21,7 @@ Both human developers and AI agents. Human is the primary voice — the Effectiv
 ```
 effective-claude-code/
 ├── book/
+│   ├── _item-template.md   # Frontmatter + body template for new Items
 │   ├── 01-memory/          # Items 1–N for Memory & CLAUDE.md
 │   ├── 02-commands/        # Items for Commands
 │   ├── 03-subagents/       # Items for Subagents
@@ -36,13 +37,13 @@ effective-claude-code/
 ├── .claude/
 │   └── skills/             # Phase 2: apply skill
 ├── scripts/                # Phase 2: CLAUDE.md generator
-├── references/             # Local research only — NOT part of the book, gitignored
+├── references/             # Local research — committed during development, stripped from history before release
 ├── CLAUDE.md               # This file
 ├── README.md
 └── book.toml               # mdBook config
 ```
 
-Item numbers are **global** across all themes (item-01 through item-N). Each theme folder contains files named `item-NN.md`.
+Item numbers are **global and stable** across all themes (item-01 through item-N). Once assigned, an Item number is never renumbered. If an Item is removed or deprecated, its number is **retired** — never reused. This keeps every `related_items` cross-reference valid forever. Each theme folder contains files named `item-NN.md`.
 
 ---
 
@@ -80,7 +81,6 @@ Every Item file starts with this YAML frontmatter:
 item: 7
 theme: skills
 title: "Prefer skills over slash commands for reusable multi-step workflows"
-summary: "One-sentence human + agent takeaway — the single most important thing to remember."
 tags: [skills, reusability, automation]
 claude_code_version: "2.1.150"
 stability: stable        # stable | beta | deprecated
@@ -100,12 +100,12 @@ agent_steps:
 ```
 
 **Field rules:**
-- `item`: Global integer, unique across all themes
-- `title`: Imperative or principle statement — the advice in one line
-- `summary`: One sentence, self-contained — what an agent extracts first
-- `claude_code_version`: Version when Item was written/last verified
-- `status`: Set to `needs-review` when a Claude Code release may have changed the specifics
-- `agent_steps`: Concrete, ordered, executable steps — written so Claude can follow them without reading the prose
+- `item`: Global integer, unique across all themes. Stable forever — never renumbered, retired numbers never reused.
+- `title`: Imperative or principle statement — the advice in one line. A reader scanning titles alone should learn something.
+- `claude_code_version`: Version when the Item was **last verified** to still be accurate. Update lazily when you re-verify; the real staleness signal is `status: needs-review`.
+- `status`: Set to `needs-review` when a Claude Code release may have changed the specifics.
+- `things_to_remember`: 2–4 bullets. The first bullet is the one-line takeaway an agent extracts. This field is the **single source of truth** — it is rendered onto the page by the mdBook build, not duplicated in the body.
+- `agent_steps`: Concrete, ordered, executable steps — written so Claude can follow them without reading the prose.
 
 ---
 
@@ -130,13 +130,9 @@ Write at the principle level — durable reasoning, not version-specific syntax.
 ## Example
 
 [Code block or file snippet showing a real implementation.]
-
-## Things to Remember
-
-- [Bullet 1 — mirrors things_to_remember in frontmatter]
-- [Bullet 2]
-- [Bullet 3]
 ```
+
+The "Things to Remember" list comes from the `things_to_remember` frontmatter field and is rendered onto the page by the mdBook build — do not write it into the body.
 
 **Length:** 1–2 rendered pages. Long enough to explain the *why*, short enough to read in 3 minutes.
 
@@ -148,7 +144,7 @@ Write at the principle level — durable reasoning, not version-specific syntax.
 - **Title is the advice.** A reader scanning titles alone should learn something.
 - **No comments in code examples** unless the why is non-obvious.
 - **agent_steps are imperative and concrete.** They should work without reading the prose.
-- **Things to Remember mirrors the frontmatter field.** Keep them in sync.
+- **`things_to_remember` lives only in frontmatter.** The mdBook build renders it onto the page; do not transcribe it into the body.
 
 ---
 
@@ -165,13 +161,14 @@ Write at the principle level — durable reasoning, not version-specific syntax.
 
 - Author writes initial Items for each theme
 - Community submits corrections and new Items via PR
+- New Items start by copying `book/_item-template.md` — the template is the canonical schema
 - Each PR must: follow the frontmatter schema, match the Item body structure, include a real `claude_code_version`, pass a review for principle-level writing (not just syntax documentation)
 
 ---
 
 ## License
 
-MIT
+CC-BY-4.0. See `LICENSE` for the full text. Attribution required; commercial reuse allowed. Covers both prose and code in this repository.
 
 ---
 
@@ -197,13 +194,13 @@ mdBook → GitHub Pages. Config in `book.toml`.
 
 1. **Research**: Read the relevant files in `references/claude-code-best-practice/` (best-practice, tips, reports, implementation) AND fetch the official docs page for the theme from `https://code.claude.com/docs`.
 2. **Propose titles**: Draft 5–7 candidate Item titles for the theme. Present them to the user for approval, cuts, reordering, or additions.
-3. **Calibrate**: Write the first Item (intro `README.md` + `item-NN.md`) in full. Wait for user review and style feedback before continuing.
+3. **Calibrate (chapter 1 only)**: For the first chapter, write the intro `README.md` + the first `item-NN.md` in full and wait for user review on voice, structure, and length before continuing. From chapter 2 onward, the title-approval gate in step 2 is the only checkpoint — proceed straight to bulk writing unless a deliberate style shift is needed.
 4. **Bulk write**: Write all remaining Items for the theme in one pass.
 5. **Commit**: One commit per completed theme. Message names the chapter and lists Item titles.
 
 ### Cross-references
 
-After all 12 themes are complete, do a single pass to populate `related_items` frontmatter across all Items.
+Write `related_items` opportunistically as you go — at the time of writing chapter N, link backward to any relevant Items in chapters 1..N-1. After all 12 themes are complete, do a single **forward-link** pass to add references that point from earlier Items to later ones.
 
 ### Chapter structure per theme folder
 
