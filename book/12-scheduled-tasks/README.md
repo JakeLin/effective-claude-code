@@ -1,0 +1,9 @@
+# Scheduled Tasks & Routines
+
+> **Beta.** Scheduled tasks and routines are experimental. Treat the principles here as durable and the specific limits, trigger types, and platform availability as details to re-check against the current docs.
+
+So far every chapter has assumed you trigger Claude — you type, it runs, you read the result. This last chapter is about Claude running on a clock instead of on your keystroke: work that repeats on an interval, or fires on a schedule or an event, with you not necessarily there. The simplest form is `/loop`, which runs a prompt or slash command every few minutes — `/loop 5m "check deploy status"` — inside the current conversation. The heaviest form is a *routine*, created with `/schedule`, that runs on Anthropic's infrastructure whether or not your machine is even on.
+
+The thing to hold onto is that these scheduling models differ in *lifetime*, and choosing the wrong one is the central mistake. A `/loop` task belongs to a conversation: it pauses when Claude Code is closed and resumes only if you resume the same conversation before the task expires. That makes it perfect for "while I'm working, keep an eye on X" and useless as a production daemon. A routine persists independently and is the right tool when the work genuinely must outlive your session. Mistaking the first for the second gives you automation that silently stops the moment you close your laptop.
+
+And because a scheduled task runs *without you watching*, everything the headless chapter said about guardrails comes back multiplied: cost, permissions, and runaway risk now repeat on every tick. This chapter covers the four durable points — how `/loop` works and why it is conversation-bound, how to match the scheduler to the lifetime the work needs, when to promote work to a persistent routine, and how to fence any recurring autonomous run so it can't quietly burn cost or go wrong on a timer.

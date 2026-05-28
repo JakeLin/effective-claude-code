@@ -1,0 +1,12 @@
+[book]
+title = "Effective Claude Code"
+description = "Concrete, actionable principles for using Claude Code well."
+language = "en"
+src = "book"
+
+[build]
+build-dir = "book/book"
+create-missing = false
+
+[preprocessor.frontmatter]
+command = "python3 scripts/mdbook-frontmatter.py"
