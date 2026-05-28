@@ -1,0 +1,9 @@
+# Settings & Permissions
+
+Settings are how you configure Claude Code without arguing with it every session, and permissions are how you decide — once, in writing — what it's allowed to do without asking. Both live in `settings.json` files, and both follow the same idea: encode the decision in a file so the harness enforces it deterministically, instead of re-litigating it in the prompt every time.
+
+There are several `settings.json` files, layered. An organization can deploy a *managed* policy that nothing else can override. You keep personal defaults in your user settings (`~/.claude/settings.json`). A repo ships team-shared config in `.claude/settings.json`, committed to git. And each developer keeps their own un-shared tweaks in `.claude/settings.local.json`, which stays out of the repo. Command-line flags override all of the writable ones for a single session. Knowing this cascade is the difference between a setting that takes effect and one that's silently overridden two layers up.
+
+Permissions are the highest-stakes part of that config. The `permissions` block has three lists — `allow`, `ask`, `deny` — and a `defaultMode`. A well-built allowlist makes Claude fast on the safe, repetitive operations while still stopping to ask on anything consequential; a `deny` list is the hard floor that protects secrets and blocks destructive commands no matter what. Get this wrong in the loose direction and you're one bad prompt from a force-push to main; get it wrong in the tight direction and you approve `npm test` forty times a day.
+
+This chapter starts with the file hierarchy and the commit/gitignore split, then works through the permission system from the philosophy of curating an allowlist, to writing narrow rules, to the deny safety net, and finally to permission modes and the right way to use bypass mode — inside a sandbox you can throw away.
