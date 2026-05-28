@@ -191,6 +191,28 @@ mdBook → GitHub Pages. Config in `book.toml`.
 
 ---
 
+## Building workflow
+
+### Per-theme process (repeat for each of the 12 chapters in order)
+
+1. **Research**: Read the relevant files in `references/claude-code-best-practice/` (best-practice, tips, reports, implementation) AND fetch the official docs page for the theme from `https://code.claude.com/docs`.
+2. **Propose titles**: Draft 5–7 candidate Item titles for the theme. Present them to the user for approval, cuts, reordering, or additions.
+3. **Calibrate**: Write the first Item (intro `README.md` + `item-NN.md`) in full. Wait for user review and style feedback before continuing.
+4. **Bulk write**: Write all remaining Items for the theme in one pass.
+5. **Commit**: One commit per completed theme. Message names the chapter and lists Item titles.
+
+### Cross-references
+
+After all 12 themes are complete, do a single pass to populate `related_items` frontmatter across all Items.
+
+### Chapter structure per theme folder
+
+Each `book/NN-theme/` folder contains:
+- `README.md` — chapter intro: what the feature is (beginner-friendly, ~150 words), why it matters, how Items build on each other. Beta chapters (10–12) include an explicit "subject to change" note.
+- `item-NN.md` — one file per Item, global item numbering across the whole book
+
+---
+
 ## Reference material
 
 `references/` is committed during development so Claude Code Web can access it, but is **not part of the published book**. Strip it from git history before public release using:
