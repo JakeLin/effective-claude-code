@@ -52,7 +52,9 @@ After the frontmatter, every Item follows: `## Why this matters` → `## What to
 
 Repeat for each of the 12 chapters in order:
 
-1. **Research**: Delegate to the `Explore` subagent rather than reading inline — the raw doc/reference dump belongs in the child, not the main thread (see Item 15). Ask the agent to read the relevant files in `references/claude-code-best-practice/` AND fetch the official docs page for the theme from `https://code.claude.com/docs`, and return under ~400 words covering: frontmatter fields and behavior, anti-patterns called out in the sources, and any version-specific notes worth flagging.
+1. **Research** — two passes:
+   - **Structured facts (delegate to `Explore`)**: ask the agent to read the theme's best-practice and implementation files in `references/claude-code-best-practice/` AND fetch the official docs page from `https://code.claude.com/docs`. Return under ~400 words covering frontmatter fields and defaults, official behavior, and version-specific notes. The raw doc dump belongs in the child, not the main thread (Item 15).
+   - **Long-form material (read inline)**: read relevant videos, reports, and prose from `references/` directly in the main thread. This is where principles and anti-patterns surface, and delegating it flattens the texture the book is meant to capture (the limit on Item 15 — don't delegate understanding).
 2. **Propose titles**: Draft 5–7 candidate Item titles. Present them to the user for approval, cuts, reordering, or additions.
 3. **Calibrate (chapter 1 only)**: Write the intro `README.md` + the first `item-NN.md` in full and wait for user review on voice, structure, and length. From chapter 2 onward, the title-approval gate in step 2 is the only checkpoint — proceed straight to bulk writing unless a deliberate style shift is needed.
 4. **Bulk write**: Write all remaining Items for the theme in one pass.
