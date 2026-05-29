@@ -6,7 +6,7 @@ tags: [commands, sessions, context]
 claude_code_version: "2.1.153"
 stability: stable
 status: current
-related_items: [8]
+related_items: [8, 51]
 things_to_remember:
   - "`/clear` for topic switches, `/compact` for same task with full context, `/rewind` to undo a bad turn"
   - "`/compact` keeps task and conversation continuity; `/clear` discards everything but the file-system state"

@@ -6,7 +6,7 @@ tags: [subagents, parallelism, background, orchestration]
 claude_code_version: "2.1.153"
 stability: stable
 status: current
-related_items: [15]
+related_items: [15, 64, 66, 68]
 things_to_remember:
   - "Multiple Agent calls in one message run concurrently — that's the parallelism win, not `run_in_background`"
   - "Use background mode when you have other work to do while the agent runs, not as a default"

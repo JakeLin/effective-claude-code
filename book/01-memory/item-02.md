@@ -6,7 +6,7 @@ tags: [claude-md, hooks, enforcement, mental-model]
 claude_code_version: "2.1.153"
 stability: stable
 status: current
-related_items: [1]
+related_items: [1, 29]
 things_to_remember:
   - "CLAUDE.md is context Claude reads, not configuration the harness enforces"
   - "If a rule MUST run, write a hook; CLAUDE.md is advice"

@@ -6,7 +6,7 @@ tags: [claude-md, team-practices, maintenance]
 claude_code_version: "2.1.153"
 stability: stable
 status: current
-related_items: []
+related_items: [7]
 things_to_remember:
   - "CLAUDE.md compounds — every recurring correction belongs in it"
   - "Edit it the same week you find the gap; commit the rule alongside the code change that motivated it"

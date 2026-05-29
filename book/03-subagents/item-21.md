@@ -6,7 +6,7 @@ tags: [subagents, verification, trust, review]
 claude_code_version: "2.1.153"
 stability: stable
 status: current
-related_items: [11, 12, 15]
+related_items: [11, 12, 15, 53, 54]
 things_to_remember:
   - "An agent's return message describes intent — it is not evidence of outcome"
   - "For code-writing agents, read the diff before accepting their summary"

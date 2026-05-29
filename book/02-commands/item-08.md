@@ -6,7 +6,7 @@ tags: [commands, mindset, workflow]
 claude_code_version: "2.1.153"
 stability: stable
 status: current
-related_items: []
+related_items: [22, 26]
 things_to_remember:
   - "If you're typing a request, check `/help` first — there's a good chance a command does it directly"
   - "Built-in commands run as harness logic — deterministic, no tokens, no guessing at intent"

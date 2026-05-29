@@ -6,7 +6,7 @@ tags: [hooks, stop, automation, loops]
 claude_code_version: "2.1.153"
 stability: stable
 status: current
-related_items: [9]
+related_items: [9, 53, 74]
 things_to_remember:
   - "`Stop` fires when Claude finishes a turn — a hook there can decide whether the work is actually done"
   - "Return `{decision: 'block', reason: '...'}` to keep Claude going; return success to release control to the user"

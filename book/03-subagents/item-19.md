@@ -6,7 +6,7 @@ tags: [subagents, tools, model, cost, least-privilege]
 claude_code_version: "2.1.153"
 stability: stable
 status: current
-related_items: [13, 16]
+related_items: [13, 16, 66]
 things_to_remember:
   - "Subagents inherit every tool by default — narrow `tools` to what the job actually needs"
   - "Read-only agents should be enforced read-only via the tool list, not by hoping the prompt is followed"

@@ -6,7 +6,7 @@ tags: [permissions, deny, secrets, security, guardrails]
 claude_code_version: "2.1.150"
 stability: stable
 status: current
-related_items: [29, 38, 39]
+related_items: [29, 38, 39, 48]
 things_to_remember:
   - "Evaluation order is deny → ask → allow, and deny wins across every settings layer — a deny rule cannot be overridden by any allow"
   - "Deny the things that must never happen regardless of mode or allowlist: reading secrets (`.env`), touching credential files, destructive commands"

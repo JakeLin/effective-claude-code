@@ -6,7 +6,7 @@ tags: [claude-md, size, context-budget]
 claude_code_version: "2.1.153"
 stability: stable
 status: current
-related_items: [1, 3]
+related_items: [1, 3, 51]
 things_to_remember:
   - "Every line in CLAUDE.md loads into every session — treat the file as a context budget"
   - "Past 200 lines, adherence drops measurably"

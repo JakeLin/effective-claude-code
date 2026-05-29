@@ -6,7 +6,7 @@ tags: [commands, review, code-quality, bundled-skills]
 claude_code_version: "2.1.153"
 stability: stable
 status: current
-related_items: [8]
+related_items: [8, 54]
 things_to_remember:
   - "`/code-review` reviews the current diff at adjustable depth (low/medium/high/max/ultra)"
   - "`/review` opens a local PR review; `/ultrareview` runs a deep multi-agent cloud review"

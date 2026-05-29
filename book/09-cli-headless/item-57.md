@@ -6,7 +6,7 @@ tags: [headless, automation, cli, mindset]
 claude_code_version: "2.1.150"
 stability: stable
 status: current
-related_items: [58, 60]
+related_items: [58, 60, 72]
 things_to_remember:
   - "Headless mode (`claude -p`) runs one non-interactive turn and exits — use it whenever there's no human to answer prompts or catch mistakes"
   - "Interactive is for collaboration and exploration; headless is for scripts, CI, git hooks, and batch jobs"

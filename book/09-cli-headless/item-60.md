@@ -6,7 +6,7 @@ tags: [headless, guardrails, budget, max-turns, permissions, safety]
 claude_code_version: "2.1.150"
 stability: stable
 status: current
-related_items: [40, 42, 57]
+related_items: [40, 42, 57, 74]
 things_to_remember:
   - "An unattended run with no limits is a runaway — there's no human to stop a loop that's burning turns and money"
   - "Bound spend and length with `--max-budget-usd` and `--max-turns`; both are hard stops the harness enforces"

@@ -6,7 +6,7 @@ tags: [subagents, mindset, context]
 claude_code_version: "2.1.153"
 stability: stable
 status: current
-related_items: [2, 5, 21]
+related_items: [2, 5, 21, 52]
 things_to_remember:
   - "Subagents are context firewalls — their value is what they keep *out* of the main thread, not what they put in"
   - "If the work fits in one or two tool calls inline, a subagent costs more than it saves"

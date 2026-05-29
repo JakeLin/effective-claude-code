@@ -6,7 +6,7 @@ tags: [context, compaction, workflow, performance]
 claude_code_version: "2.1.150"
 stability: stable
 status: current
-related_items: [50, 52]
+related_items: [50, 52, 55, 64]
 things_to_remember:
   - "The context window is finite, and output quality degrades as it fills — a bloated context makes Claude slower and less accurate"
   - "Compact deliberately (around half-full) rather than waiting for auto-compaction to fire at an arbitrary moment"

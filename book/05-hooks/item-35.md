@@ -6,7 +6,7 @@ tags: [hooks, notifications, async, observability]
 claude_code_version: "2.1.153"
 stability: stable
 status: current
-related_items: []
+related_items: [74]
 things_to_remember:
   - "Hooks turn lifecycle events into out-of-band signals — Slack pings, sounds, webhook calls — so you don't have to watch the terminal"
   - "Common patterns: `PermissionRequest` to Slack (Claude needs you), `SubagentStop`/`Stop` to a sound or webhook (work is done), `Notification` for harness alerts"

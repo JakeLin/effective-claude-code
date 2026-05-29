@@ -6,7 +6,7 @@ tags: [commands, verification, testing, bundled-skills]
 claude_code_version: "2.1.153"
 stability: stable
 status: current
-related_items: [8]
+related_items: [8, 53]
 things_to_remember:
   - "Tests verify code; `/verify` and `/run` verify behavior against the running app"
   - "`/run` launches and drives your app so you can see a change working in the real environment"

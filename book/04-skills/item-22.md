@@ -6,7 +6,7 @@ tags: [skills, structure, progressive-disclosure]
 claude_code_version: "2.1.153"
 stability: stable
 status: current
-related_items: []
+related_items: [26, 28]
 things_to_remember:
   - "A skill is a folder — `SKILL.md` is the entry point, but supporting files are where the leverage compounds"
   - "Split long reference material into sibling files (`references/api.md`, `examples/`, `gotchas.md`) and point to them from `SKILL.md`"

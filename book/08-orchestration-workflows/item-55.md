@@ -6,7 +6,7 @@ tags: [task-list, workflow, persistence, multi-session]
 claude_code_version: "2.1.150"
 stability: stable
 status: current
-related_items: [50, 51]
+related_items: [50, 51, 69]
 things_to_remember:
   - "A task list externalizes the plan into durable state — work survives compaction, session end, and crashes instead of living only in the conversation"
   - "Break multi-step work into tasks small enough to each fit comfortably under half the context window"

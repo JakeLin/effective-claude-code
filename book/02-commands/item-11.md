@@ -6,7 +6,7 @@ tags: [commands, model, effort, workflow]
 claude_code_version: "2.1.153"
 stability: stable
 status: current
-related_items: [8]
+related_items: [8, 19]
 things_to_remember:
   - "All three apply immediately — no restart, no new conversation needed"
   - "Raise `/effort` for one hard turn, then drop it back; don't run the whole session at max"

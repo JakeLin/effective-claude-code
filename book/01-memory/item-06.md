@@ -6,7 +6,7 @@ tags: [claude-md, rules, path-scoping, scaling]
 claude_code_version: "2.1.153"
 stability: stable
 status: current
-related_items: [4, 5]
+related_items: [4, 5, 28, 33]
 things_to_remember:
   - "Rules in `.claude/rules/` with `paths:` frontmatter load only when Claude touches matching files"
   - "Use narrow globs — `src/api/**/*.ts`, not `**/*`"
