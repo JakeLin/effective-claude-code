@@ -25,7 +25,7 @@ The instinct with MCP is to collect servers — there's one for every system, th
 
 The context cost is mechanical. Each server contributes tool definitions, and the listing of available tools is something Claude carries each turn. A sprawling catalog crowds the context window with capabilities you're not using and makes the model slower and less accurate at picking the *right* tool from the pile. The signal you want — the four servers you actually reach for — gets diluted by the eleven you don't. Fewer, well-chosen servers leave more room for the actual conversation and make tool selection sharper.
 
-The attention and trust costs compound it. Every server is code you've chosen to run and an output channel you've chosen to trust (a theme the security Items in this chapter return to). An idle server you installed "just in case" gives you nothing back for that standing exposure. The discipline is the same one good engineers apply to dependencies: add when there's a concrete, recurring need; prune when the need passes. The marginal server almost always adds cost without adding value, so the default answer to "should I install this one too?" should lean toward no.
+The attention and trust costs compound it. Every server is code you've chosen to run and an output channel you've chosen to trust (a theme the security Items in this chapter return to). An idle server you installed "just in case" gives you nothing back for that standing exposure. It's the same discipline good engineers apply to dependencies: add when there's a concrete, recurring need; prune when the need passes. The marginal server almost always adds cost without adding value, so the default answer to "should I install this one too?" should lean toward no.
 
 ## What to avoid
 
