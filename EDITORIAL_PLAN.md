@@ -23,8 +23,8 @@ Dev artifact; not part of the published book.
 - [x] Step 10 — Ch 10 Worktrees — reviewed, clean, no edits
 - [x] Step 11 — Ch 11 Agent Teams (item-68, item-70)
 - [x] Step 12 — Ch 12 Scheduled Tasks — reviewed, clean, no edits
-- [ ] Step 13 — Forward-reference pass (whole book)
-- [ ] Step 14 — Final consistency sweep (re-count crutches; voice read-through)
+- [x] Step 13 — Forward-reference pass (22 items linked; 4 empties filled; graph validated)
+- [x] Step 14 — Final consistency sweep (crutch recount + structural integrity: all 74 items pass)
 
 ## Track 2 — Structure & build
 - [ ] Step 15 — mdBook plumbing: book.toml + SUMMARY.md (exclude _item-template.md)
