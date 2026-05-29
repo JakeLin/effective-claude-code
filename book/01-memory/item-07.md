@@ -25,7 +25,7 @@ Auto memory is the system that lets Claude carry knowledge across sessions witho
 
 It is complementary to CLAUDE.md, not a replacement. CLAUDE.md is what *you* commit for the team: build commands, architectural decisions, conventions everyone needs. Auto memory is what *Claude* learns about working with you on this repo: that you prefer `pnpm` to `npm`, that the integration tests need Redis running, that the design lead always asks about accessibility before approving frontend PRs. The two systems carry different shapes of knowledge — one is curated and shared, the other is incidental and personal.
 
-The trap is treating auto memory as opaque. If you never run `/memory`, you don't know what Claude is carrying about you and this codebase across sessions. Stale entries persist; duplicates accumulate; useful learnings stay invisible to the team because they live in your machine-local notes.
+The risk is treating auto memory as a black box. If you never run `/memory`, you don't know what Claude is carrying about you and this codebase across sessions. Stale entries persist; duplicates accumulate; useful learnings stay invisible to the team because they live in your machine-local notes.
 
 ## What to avoid
 
