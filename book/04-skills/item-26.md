@@ -25,9 +25,9 @@ Skills, subagents, and commands overlap enough that "which one should this be?" 
 
 When more than one of these would technically work, Claude prefers the lightest: skill before agent before command. That ordering is also what you want most of the time. A skill auto-invokes on intent match, costs only its description in resident context, and is fully sufficient for anything that doesn't need a separate context window or a different permission posture.
 
-Promotion to agent earns its keep when context isolation is the point — large-surface research that would pollute the main thread, autonomous multi-step work that benefits from its own reasoning context, or anything that needs persistent memory, a permission mode like `acceptEdits` or `plan`, or its own MCP server scope. Promotion to a command earns its keep when the workflow must never auto-fire — user-initiated entry points to orchestrations, things you only want triggered when the user types the slash.
+Promotion to agent earns its keep when context isolation is the point — large-surface research that would pollute the main thread, autonomous multi-step work that benefits from its own reasoning context, or anything that needs persistent memory, a permission mode like `acceptEdits` or `plan`, or its own MCP server scope. Promotion to a command is right when the workflow must never auto-fire — user-initiated entry points to orchestrations, things you only want triggered when the user types the slash.
 
-The mistake is going straight to agent or command for tasks where a skill would have done the job. An agent for every recurring helper produces a fleet of subagents that each cost a turn to invoke and reconcile. A command for every helper turns the slash menu into clutter no one remembers. Default to a skill; promote only when the skill form clearly misses.
+The failure mode is going straight to agent or command for tasks where a skill would have done the job. An agent for every recurring helper produces a fleet of subagents that each cost a turn to invoke and reconcile. A command for every helper turns the slash menu into clutter no one remembers. Default to a skill; promote only when the skill form clearly misses.
 
 ## What to avoid
 

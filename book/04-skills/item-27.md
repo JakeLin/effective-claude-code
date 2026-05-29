@@ -27,7 +27,7 @@ Preloading is the right pattern when you have a specialized agent that *always* 
 
 Forking is the right pattern when a skill's *work* would otherwise pollute the main thread — large-surface research, reading many files, generating long intermediate output that the main thread doesn't need after the skill returns. The fork is a context firewall (same principle as Item 15) applied at the skill level: the skill does its work in a child, returns a short result, and the noise stays out of the parent. Choosing `agent: Explore` or `agent: Plan` for the fork is the cheap option — those subagents skip CLAUDE.md to keep the forked context small.
 
-The mistake is reaching for fork by default. A skill that runs inline shares the main context window — its result is already in the parent's reasoning context, no reconciliation needed. Forking adds overhead (a separate subagent process, the briefing cost, the return summarization step). It earns its keep only when the inline version would meaningfully bloat the main thread. For most skills — short bodies, small returns — inline is the right choice.
+The mistake is reaching for fork by default. A skill that runs inline shares the main context window — its result is already in the parent's reasoning context, no reconciliation needed. Forking adds overhead (a separate subagent process, the briefing cost, the return summarization step). It's worth the overhead only when the inline version would meaningfully bloat the main thread. For most skills — short bodies, small returns — inline is the right choice.
 
 ## What to avoid
 
