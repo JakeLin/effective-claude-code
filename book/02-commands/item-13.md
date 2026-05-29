@@ -13,7 +13,7 @@ things_to_remember:
   - "Pick by what's at risk — a one-line fix doesn't need /ultrareview; a payment flow does"
   - "`/code-review --fix` applies findings to the working tree; `--comment` posts to the PR"
 agent_steps:
-  - "Before committing user-facing or load-bearing changes, propose `/code-review` at an effort matched to the change — low for mechanical, high for behavioral, ultra for critical"
+  - "Before committing user-facing or high-stakes changes, propose `/code-review` at an effort matched to the change — low for mechanical, high for behavioral, ultra for critical"
   - "Before merging a PR, suggest `/review` for a local sweep; for high-stakes changes also suggest `/ultrareview`"
   - "When the user asks Claude to review work it just wrote, prefer `/code-review` — it brings a fresh review pass instead of self-evaluation"
   - "Skip review commands when the diff is mechanical and small (typos, formatting, trivial renames)"
@@ -25,7 +25,7 @@ There are three review pathways with very different cost and depth profiles. `/c
 
 The common mistake is treating them as a single "review my work" command and either over-investing on small changes or under-investing on big ones. Running `/ultrareview` on a typo PR burns the budget for nothing; running nothing on a payment flow saves five minutes and ships a vulnerability.
 
-The other reason to know all three: they read the change differently. `/code-review` operates on the diff and is fast feedback during development. `/review` is local PR-scoped — it picks up the description, context, and full change set. `/ultrareview` spawns multiple cloud agents to dig into edge cases, security, performance, and consistency, and produces a structured report. The right tool depends on where you are: writing, about to merge, about to ship.
+The other reason to know all three: they read the change differently. `/code-review` operates on the diff and is fast feedback during development. `/review` is local PR-scoped — it picks up the description, context, and full change set. `/ultrareview` spawns multiple cloud agents to dig into edge cases, security, performance, and consistency, and produces a structured report. Which one depends on where you are: writing, about to merge, about to ship.
 
 `--fix` and `--comment` change what happens with findings. `--fix` applies high-confidence findings to your working tree directly, which is great for low-stakes cleanups and dangerous for anything subtle. `--comment` posts inline comments to the PR for human review.
 
