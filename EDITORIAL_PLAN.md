@@ -11,18 +11,18 @@ Dev artifact; not part of the published book.
 - One commit per step, pushed (env is ephemeral).
 
 ## Track 1 — Content excellence
-- [ ] **Step 1 — ⏸ CALIBRATION: Ch 1 Memory (items 1–7)** — de-crutch + targeted tighten + title check. Await sign-off before scaling.
-- [ ] Step 2 — Ch 2 Commands (8–14)
-- [ ] Step 3 — Ch 3 Subagents (15–21)
-- [ ] Step 4 — Ch 4 Skills (22–28)
-- [ ] Step 5 — Ch 5 Hooks (29–35) — fold in item-34 nit ("user"→"Claude")
-- [ ] Step 6 — Ch 6 Settings & Permissions (36–42)
-- [ ] Step 7 — Ch 7 MCP (43–49)
-- [ ] Step 8 — Ch 8 Orchestration (50–56)
-- [ ] Step 9 — Ch 9 CLI & Headless (57–63) — heaviest tightening
-- [ ] Step 10 — Ch 10 Worktrees (64–67) [beta — light touch]
-- [ ] Step 11 — Ch 11 Agent Teams (68–70) [beta — light touch]
-- [ ] Step 12 — Ch 12 Scheduled Tasks (71–74) [beta — light touch]
+- [x] Step 1 — Ch 1 Memory (calibration; 1 edit — already tight) ✓ signed off
+- [x] Step 2 — Ch 2 Commands (item-08, item-13)
+- [x] Step 3 — Ch 3 Subagents (item-16, item-18)
+- [x] Step 4 — Ch 4 Skills (item-26, item-27)
+- [x] Step 5 — Ch 5 Hooks (29/30/31/33/35 de-crutch + item-34 correctness fix)
+- [x] Step 6 — Ch 6 Settings & Permissions (item-41; rest natural)
+- [x] Step 7 — Ch 7 MCP (item-43, item-44, item-47)
+- [x] Step 8 — Ch 8 Orchestration (item-50, item-56)
+- [x] Step 9 — Ch 9 CLI & Headless (item-62, item-63 + tighten)
+- [x] Step 10 — Ch 10 Worktrees — reviewed, clean, no edits
+- [x] Step 11 — Ch 11 Agent Teams (item-68, item-70)
+- [x] Step 12 — Ch 12 Scheduled Tasks — reviewed, clean, no edits
 - [ ] Step 13 — Forward-reference pass (whole book)
 - [ ] Step 14 — Final consistency sweep (re-count crutches; voice read-through)
 
