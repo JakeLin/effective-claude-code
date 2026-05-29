@@ -6,9 +6,9 @@ tags: [subagents, context-isolation, delegation, parallelism]
 claude_code_version: "2.1.150"
 stability: stable
 status: current
-related_items: [15, 16, 51]
+related_items: [15, 16, 20, 51]
 things_to_remember:
-  - "A subagent runs in its own context window and returns only a summary — the main thread gets the conclusion, not the file dumps"
+  - "Fan independent legwork out to parallel subagents — each returns a compact summary, so the main thread reasons over conclusions, not file dumps"
   - "Delegate work whose process is noisy but whose result is compact: broad searches, large-file exploration, parallel checks"
   - "Independent subagents run in parallel, giving roughly N× effective context for fan-out work"
   - "Don't delegate the understanding you need to keep — offload the legwork, retain the judgment"
@@ -21,11 +21,11 @@ agent_steps:
 
 ## Why this matters
 
-The previous Item framed context as a budget; subagents are the most powerful way to spend it well. A subagent runs in its *own* context window, does its work there, and returns only a summary to the main thread. That separation is the whole point: a broad codebase search might read forty files to answer one question, and if it runs in your main context, those forty files are now sitting in it, crowding out everything else. Run it in a subagent and the main thread receives the answer — "the auth flow lives in `middleware/session.ts`, here's how it works" — without the forty files. The legwork happened somewhere else; only the conclusion came back.
+A subagent is a context firewall: its own window, returning only a summary (Item 15). This Item is about the orchestration move that firewall unlocks — *fan-out*. When a task needs several independent pieces of legwork — find the call sites, learn the existing API, locate the tests — spawn a subagent for each, run them concurrently (Item 20), and let the main thread reason over the conclusions instead of the dozens of files the agents read to produce them. The legwork happens in N separate contexts; only N short answers come back.
 
-This makes subagents the right tool for a specific shape of work: noisy process, compact result. Sweeping a large directory to find where something is defined. Reading an unfamiliar dependency to understand its API. Running several independent checks at once. In each, the *doing* generates a lot of intermediate material and the *answer* is small. Delegation also unlocks parallelism — independent subagents execute concurrently, so fanning three investigations out to three subagents gives you roughly three times the effective context working at once and returns three summaries instead of serializing the reads through one window. For fan-out work, that's a multiplier you can't get any other way.
+The pattern fits a specific shape of work: noisy process, compact result. A broad directory sweep, an unfamiliar dependency to map, a batch of independent checks — each generates a lot of intermediate material and yields a small answer. Fanning them out makes that a multiplier: three investigations across three subagents put roughly three times the effective context to work at once and collapse the wall-clock time, because the reads happen in parallel instead of serializing through a single window. For fan-out work, that's leverage you can't get any other way.
 
-But delegation has a sharp limit, and it's the same one the subagents chapter drew: don't delegate the understanding you need to keep. A subagent returns a summary, and a summary is lossy — it's the right trade when you need a *conclusion* (where is X, does Y compile, what does Z do) and the wrong trade when you need to *internalize* something to make the next decision. If the texture of what's being read matters to your judgment — the design you're about to critique, the code you're about to extend — read it in the main thread. The rule is clean: offload the legwork, retain the judgment. Subagents preserve your context for the thinking that has to happen in it.
+The limit is the one the subagents chapter already drew (Item 15): offload the legwork, not the judgment. A summary is lossy — the right trade when you need a *conclusion* (where is X, does Y compile), the wrong one when you need to *internalize* something to make the next call. If the texture matters — the design you're about to critique, the code you're about to extend — read it in the main thread. Fan-out multiplies your reach for facts; it doesn't replace the thinking that has to happen where you can see it.
 
 ## What to avoid
 
