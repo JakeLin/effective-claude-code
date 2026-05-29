@@ -26,7 +26,7 @@ agent_steps:
 
 A description that works treats itself like a router rule. It names the triggering situations explicitly: "Use this agent when reviewing a migration PR." "Use PROACTIVELY when running database migrations against production schemas." The presence of concrete triggers — and the keyword `PROACTIVELY` for cases where Claude should reach for the agent without being asked — is the difference between an agent that gets invoked and one that gathers dust.
 
-The same applies to the inverse case. A description that's too broad ("Use for any code question") will get routed to when it shouldn't, swallowing tasks the built-ins would handle better. The discipline is the same as writing a good function signature: state precisely when this thing should be called and what it returns.
+The same applies to the inverse case. A description that's too broad ("Use for any code question") will get routed to when it shouldn't, swallowing tasks the built-ins would handle better. It's the same discipline as writing a good function signature: state precisely when this thing should be called and what it returns.
 
 ## What to avoid
 

@@ -23,9 +23,9 @@ agent_steps:
 
 Claude Code ships five subagents and they handle most reasons people delegate. `general-purpose` is the catch-all — full tool list, full model, fine for arbitrary multi-step work. `Explore` is the one most people underuse: read-only, Haiku-backed, optimized for finding things in a codebase and answering "where" questions. `Plan` is read-only too, but oriented at designing an approach before any code gets written. The remaining two (`statusline-setup`, `claude-code-guide`) cover narrow but real cases.
 
-The mistake is jumping to a custom subagent because "we always do X this way." Custom subagents are real overhead: a markdown file to maintain, a `description` that has to be tuned so the router picks it up, a set of tool restrictions that need to stay current, and a place where instructions can drift out of sync with project conventions. None of that earns its keep if `Explore` would have done the job.
+The temptation is to jump to a custom subagent because "we always do X this way." Custom subagents are real overhead: a markdown file to maintain, a `description` that has to be tuned so the router picks it up, a set of tool restrictions that need to stay current, and a place where instructions can drift out of sync with project conventions. None of that earns its keep if `Explore` would have done the job.
 
-The decision rule is narrow. A custom subagent earns its place when one of three is true: it needs project-specific tools or MCP servers the built-ins don't have; it needs to run against a specific scope (a particular directory, a particular branch) with rules the built-ins don't enforce; or it embodies a recurring instruction pattern long enough that writing it into the agent file beats restating it in every prompt. Otherwise, reach for what ships.
+The decision rule is narrow. A custom subagent is justified when one of three is true: it needs project-specific tools or MCP servers the built-ins don't have; it needs to run against a specific scope (a particular directory, a particular branch) with rules the built-ins don't enforce; or it embodies a recurring instruction pattern long enough that writing it into the agent file beats restating it in every prompt. Otherwise, reach for what ships.
 
 ## What to avoid
 
