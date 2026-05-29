@@ -61,4 +61,4 @@ plan/       → user stories, design, phased roadmap              [review gate]
 implement/  → build phase by phase, with checks at each         [verify gate]
 ```
 
-Each arrow is a cheap place to change course. The discipline is identical at both scales: understand, propose, review, *then* build — never the other way around.
+Each arrow is a cheap place to change course. The pattern is identical at both scales: understand, propose, review, *then* build — never the other way around.
