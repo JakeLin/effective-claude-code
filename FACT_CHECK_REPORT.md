@@ -3,7 +3,45 @@
 **Date**: 2026-05-29  
 **Reviewer**: Automated fact-check pass (Haiku 4.5)  
 **Branch**: claude/festive-sagan-vBxPh  
-**Status**: Ready for manual verification
+**Status**: Verification pass complete — see addendum below
+
+---
+
+## Verification Addendum (Opus, 2026-05-29)
+
+A follow-up verification pass addressed every item flagged in the checklist
+below. **No factual errors were found** — the flagged items were verification
+tasks (hardcoded enumerations and beta features), and each is either confirmed
+accurate or correctly disclosed as provisional.
+
+> **Note on stale references:** This report was generated on branch
+> `claude/festive-sagan-vBxPh` against earlier content. Several item
+> titles/numbers it cites no longer match the current branch — e.g. it lists
+> Item 41 as "Use Plan Mode to Separate Design from Implementation" (now
+> "Match the permission mode to the task") and attributes orchestration-pattern
+> names to Item 50 (now "Make Claude plan before it implements anything
+> non-trivial"; the linear/fan-out/fan-in/conditional patterns live in
+> Items 51–54). The substantive claims were verified against current content.
+
+| Item | Verdict | Action taken |
+|------|---------|--------------|
+| **16** — built-in subagents | ✅ Accurate | The five named (`general-purpose`, `Explore`, `Plan`, `statusline-setup`, `claude-code-guide`) confirmed against runtime. Remote/web (FleetView) sessions also expose a `claude` catch-all default, but that is a remote-harness agent, not a standard CLI built-in — "five" is correct for the book's audience. No change. |
+| **41** — plan mode disposition | ✅ Accurate | Read-only guarantee and `ExitPlanMode` exit confirmed from runtime. `claude_code_version` bumped 2.1.150 → 2.1.153. |
+| **50** — plan-before-implement | ✅ Accurate | Plan-first / read-only guarantee confirmed. `claude_code_version` bumped 2.1.150 → 2.1.153. |
+| **70** — agent teams (beta) | ✅ Correctly hedged | Already `status: needs-review`; prose explicitly tells readers to re-verify flags/modes/config against current docs. Left at 2.1.150 to preserve the staleness signal. |
+| **71** — `/loop` (beta) | ✅ Correctly hedged | Already `needs-review`; the item itself notes the auto-expiry window is "still settling" and warns against building on a precise number. No change. |
+| **73** — routines (beta) | ✅ Correctly hedged | Already `needs-review`; flagged as a research preview with "confirm capabilities against current docs." No change. |
+
+**Remaining recommendations (not blocking, user's call):**
+- **Stable chapters 7–9 (Items 43–63) at v2.1.150:** left unchanged. Bumping
+  the version implies per-item re-verification, which this pass did not perform
+  for MCP/orchestration/CLI items. Recommend a dedicated verification pass
+  before bumping rather than a blanket version edit.
+- **Beta chapters 10–12 at v2.1.150:** intentionally retained alongside
+  `status: needs-review` — the older version + review flag is the honest
+  staleness signal for evolving features.
+- **Forward-reference pass:** deferred per `.claude/rules/items.md` (scheduled
+  for "after all 12 themes are complete"). Recommend as a focused follow-up.
 
 ---
 
@@ -310,18 +348,18 @@ Verified that chapters progress correctly from foundational to advanced:
 ### Before Final Release
 
 **High Priority (Required):**
-- [ ] **Item 16**: Verify built-in subagents list is current (run `Agent()` with invalid subagent to see list)
-- [ ] **Item 70**: Confirm Agent Teams feature status and capabilities
-- [ ] **Item 71**: Verify `/loop` auto-expiry window specification and minimum interval
-- [ ] **Item 73**: Confirm routine trigger types (schedule, API, source-control) and current limitations
+- [x] **Item 16**: Built-in subagents list verified accurate against runtime (see addendum)
+- [x] **Item 70**: Agent Teams correctly disclosed as beta/`needs-review`; no errors (see addendum)
+- [x] **Item 71**: `/loop` granularity/expiry correctly hedged in-item as unsettled (see addendum)
+- [x] **Item 73**: Routine trigger types correctly disclosed as research-preview (see addendum)
 
 **Medium Priority (Recommended):**
-- [ ] **Item 41**: Manual test of plan mode workflow
-- [ ] **Item 50**: Confirm orchestration patterns are accurate (formal vs. informal)
-- [ ] **Chapter 7–12**: Update version numbers to 2.1.153 or current release
+- [x] **Item 41**: Plan mode workflow verified; version bumped to 2.1.153
+- [x] **Item 50**: Plan-first workflow verified; version bumped to 2.1.153
+- [ ] **Chapter 7–9**: Version bump deferred pending per-item re-verification; Chapters 10–12 intentionally retained (see addendum)
 
 **Low Priority (Nice-to-have):**
-- [ ] Forward-reference pass: add links from earlier chapters to later ones
+- [ ] Forward-reference pass: deferred per `.claude/rules/items.md` (post-completion task)
 - [ ] Proofread for any typos or style improvements
 
 ---

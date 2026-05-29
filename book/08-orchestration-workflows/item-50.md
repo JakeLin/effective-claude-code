@@ -3,7 +3,7 @@ item: 50
 theme: orchestration-workflows
 title: "Make Claude plan before it implements anything non-trivial"
 tags: [planning, plan-mode, rpi, workflow]
-claude_code_version: "2.1.150"
+claude_code_version: "2.1.153"
 stability: stable
 status: current
 related_items: [41, 51, 55]

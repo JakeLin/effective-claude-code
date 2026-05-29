@@ -3,7 +3,7 @@ item: 41
 theme: settings-permissions
 title: "Match the permission mode to the task, not your impatience"
 tags: [permissions, modes, plan-mode, acceptEdits, workflow]
-claude_code_version: "2.1.150"
+claude_code_version: "2.1.153"
 stability: stable
 status: current
 related_items: [38, 42]
