@@ -12,6 +12,12 @@ things_to_remember:
   - "Name the triggers explicitly: 'Use when X', 'Use PROACTIVELY when Y' — vague descriptions get bypassed"
   - "Auto-invocation only fires when the description's triggers are unambiguous and the keyword `PROACTIVELY` is present"
   - "If you find yourself manually invoking your own subagent by name, the description is too weak"
+agent_steps:
+  - "Write `description` as routing copy: name the triggering situation, what the agent does, and what it returns — not a bare label"
+  - "State triggers explicitly with 'Use when X'; add the keyword `PROACTIVELY` only when Claude should reach for the agent unprompted"
+  - "Add a scope-narrowing clause ('Do NOT use for ...') when the agent must stay in its lane"
+  - "Update the description in the same edit whenever you change the agent's responsibilities"
+  - "If you catch yourself invoking your own subagent by name, rewrite the description — it's too weak to route on"
 ---
 
 ## Why this matters

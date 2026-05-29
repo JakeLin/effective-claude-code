@@ -12,6 +12,12 @@ things_to_remember:
   - "For code-writing agents, read the diff before accepting their summary"
   - "For research agents, spot-check by opening one or two of the files they cite"
   - "Treat 'all tests pass' from an agent as a claim until you see the test runner output"
+agent_steps:
+  - "Treat every subagent summary as a claim to verify, not as established fact"
+  - "For code-writing agents, run `git diff` or `git status` and review the change before reporting completion"
+  - "For research or audit agents, open one or two cited files and confirm the finding exists"
+  - "For agents that ran tests or builds, check the actual runner output rather than the agent's summary of it"
+  - "When reporting to the user, attribute unverified agent claims ('the agent reports X') rather than stating them as your own"
 ---
 
 ## Why this matters
@@ -30,7 +36,7 @@ Approving "implemented the feature, all tests pass" without looking at what chan
 
 For code-writing agents, the verification step is `git diff` (or `git status` to scan the surface), reviewed in the parent thread before reporting completion to the user. For research and audit agents, open one cited file at random and confirm the finding. For agents that run tests or builds, check the actual output. The cost is small; the cost of compounding an unverified agent claim into the next decision is large.
 
-Phrase reports to the user in a way that doesn't laundered the agent's claims into your own. "The agent reports all tests pass — confirmed by re-running" is honest; "all tests pass" without verification is borrowing the agent's confidence.
+Phrase reports to the user in a way that doesn't launder the agent's claims into your own. "The agent reports all tests pass — confirmed by re-running" is honest; "all tests pass" without verification is borrowing the agent's confidence.
 
 ## Example
 
