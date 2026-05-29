@@ -25,7 +25,7 @@ Headless runs let you shape the system prompt from the command line, and there a
 
 Most of the time, what you actually want is *append*. You're adding a constraint for this run — "respond only in JSON," "follow our commit-message format," "you are reviewing for security, be strict" — on top of an agent that should still know how to use its tools and behave safely. Append does exactly that: your instructions layer onto a fully-functional agent. Reaching for replace to add a rule is like rebuilding the engine to change the radio station; you get your rule and lose everything else that was working. The default-friendly choice is append, and it covers the large majority of headless customization.
 
-Replace earns its place only when you genuinely want a *different agent* — one whose entire behavior you're defining from scratch, where the defaults would actively get in the way. That's a real but uncommon need: a narrowly-scoped transformer that should behave nothing like a coding agent, for instance. When you do replace, do it knowingly, accepting that you're now responsible for any tool guidance and safety framing the task needs, because the defaults that provided them are gone. And note the boundary with earlier chapters: durable project conventions that should *always* apply belong in CLAUDE.md (Chapter 1), not in a flag repeated on every invocation — the prompt flags are for per-run shaping, not for the standing rules that memory already handles.
+Replace is justified only when you genuinely want a *different agent* — one whose entire behavior you're defining from scratch, where the defaults would actively get in the way. That's a real but uncommon need: a narrowly-scoped transformer that should behave nothing like a coding agent, for instance. When you do replace, do it knowingly, accepting that you're now responsible for any tool guidance and safety framing the task needs, because the defaults that provided them are gone. And note the boundary with earlier chapters: durable project conventions that should *always* apply belong in CLAUDE.md (Chapter 1), not in a flag repeated on every invocation — the prompt flags are for per-run shaping, not for the standing rules that memory already handles.
 
 ## What to avoid
 
@@ -45,7 +45,7 @@ git diff --staged | claude -p "review this diff" \
 secret, injection risk, or unsafe deserialization. Be concise."
 ```
 
-The agent still has its full tool guidance and safety behavior; your reviewer instructions are layered on top. This is the right shape for almost all headless customization.
+The agent still has its full tool guidance and safety behavior; your reviewer instructions are layered on top. This covers almost all headless customization.
 
 Replace — a deliberately different agent, defaults intentionally gone:
 
