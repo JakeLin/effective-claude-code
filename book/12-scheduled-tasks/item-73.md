@@ -6,7 +6,7 @@ tags: [scheduled-tasks, routines, triggers, automation, beta]
 claude_code_version: "2.1.150"
 stability: beta
 status: needs-review
-related_items: [72, 74]
+related_items: [71, 72, 74]
 things_to_remember:
   - "A routine runs on managed cloud infrastructure, so it persists and fires whether or not your machine or session is running"
   - "Routines support more than a clock: schedule triggers, an API/webhook trigger, and source-control event triggers (e.g. on a PR)"

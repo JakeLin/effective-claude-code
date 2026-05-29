@@ -6,7 +6,7 @@ tags: [scheduled-tasks, loop, cron, session-scoped, beta]
 claude_code_version: "2.1.150"
 stability: beta
 status: needs-review
-related_items: [72, 74]
+related_items: [72, 73, 74]
 things_to_remember:
   - "`/loop <interval> <prompt-or-command>` repeats work on a cron schedule from inside a session — built in, no setup"
   - "Loop tasks are session-scoped: they live in memory and stop the moment Claude exits — not a background daemon"

@@ -6,7 +6,7 @@ tags: [permissions, modes, plan-mode, acceptEdits, workflow]
 claude_code_version: "2.1.153"
 stability: stable
 status: current
-related_items: [38, 42]
+related_items: [38, 42, 50]
 things_to_remember:
   - "Permission mode sets the default disposition for unmatched operations: `default` prompts, `acceptEdits` auto-accepts edits, `plan` is read-only, `bypassPermissions` skips checks"
   - "Pick the mode for the work in front of you — `plan` for exploration, `acceptEdits` for a trusted edit-heavy loop, `default` when you want to stay in the loop"

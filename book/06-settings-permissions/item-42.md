@@ -6,7 +6,7 @@ tags: [permissions, bypass, sandbox, security, isolation]
 claude_code_version: "2.1.150"
 stability: stable
 status: current
-related_items: [40, 41]
+related_items: [36, 37, 40, 41]
 things_to_remember:
   - "bypassPermissions / --dangerously-skip-permissions removes the safety net — only run it where a worst-case action can't hurt anything you care about"
   - "The right home for bypass is an isolated, disposable environment: a fresh container, an ephemeral VM, a throwaway worktree — not your laptop on a repo with prod credentials"
