@@ -21,7 +21,7 @@ agent_steps:
 
 ## Why this matters
 
-`PostToolUse` runs immediately after a tool succeeds. It's the right place to enforce invariants that aren't worth asking the model to remember: run the formatter so the diff is canonical, run a quick lint pass to catch obvious mistakes, run a type-check on the touched files. These are mechanical operations whose value is consistency — they don't depend on Claude understanding the project's style; the harness just makes the project's style true.
+`PostToolUse` runs immediately after a tool succeeds. It's where you enforce invariants that aren't worth asking the model to remember: run the formatter so the diff is canonical, run a quick lint pass to catch obvious mistakes, run a type-check on the touched files. These are mechanical operations whose value is consistency — they don't depend on Claude understanding the project's style; the harness just makes the project's style true.
 
 The leverage is not just that the work happens — it's that the working tree is always in a known state between turns. Without `PostToolUse`, the model edits a file, the lint failure shows up two turns later when CI runs, and the original context for the change is gone. With `PostToolUse` running a formatter and lint on every edit, the failure surfaces in the same turn — Claude sees the lint error in the same context that produced the edit and can fix it before moving on. That's the loop that keeps a session from accumulating sediment.
 

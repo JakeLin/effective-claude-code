@@ -9,7 +9,7 @@ status: current
 related_items: [29]
 things_to_remember:
   - "A silently-broken hook is worse than no hook — the guarantee evaporates without a signal"
-  - "Exit 0 = proceed, exit 2 = blocking error with stderr shown to user, other non-zero = non-blocking error"
+  - "Exit 0 = proceed, exit 2 = blocking error with stderr fed back to Claude, other non-zero = non-blocking error"
   - "Write decisions as JSON on stdout; write diagnostics to stderr; never mix the two"
   - "Test every hook by deliberately triggering both the success and failure paths before relying on it"
 agent_steps:
@@ -23,7 +23,7 @@ agent_steps:
 
 A hook is a promise. "This won't happen" or "this will always happen" or "we stop when the tests pass" — each is a guarantee the harness is supposed to enforce. A hook that silently does nothing because of a path typo, a missing dependency, or an unhandled error breaks the promise without telling anyone. The user thinks the guardrail is in place; it isn't. Worse, the failure correlates with exactly the cases the hook was meant to handle — the unusual ones — so the silent break shows up in production rather than during normal use.
 
-The protocol the harness uses is small and specific: exit 0 means proceed (and stdout, if present, is parsed as a JSON decision); exit 2 means blocking error with stderr shown to the user; other non-zero codes mean non-blocking error. JSON decisions go on stdout; human-readable diagnostics go on stderr. Mixing them — printing a stack trace to stdout, or a JSON object to stderr — turns a parseable signal into noise the harness can't act on.
+The protocol the harness uses is small and specific: exit 0 means proceed (and stdout, if present, is parsed as a JSON decision); exit 2 means blocking error with stderr fed back to Claude; other non-zero codes mean non-blocking error. JSON decisions go on stdout; human-readable diagnostics go on stderr. Mixing them — printing a stack trace to stdout, or a JSON object to stderr — turns a parseable signal into noise the harness can't act on.
 
 Designing for the failure path means three concrete habits. First, separate streams: every decision is JSON on stdout; every error message is plain text on stderr. Second, choose the exit code deliberately — `exit 2` when you genuinely want the user to see the error, `exit 1` for a soft warning, `exit 0` when the hook decided to let things proceed (with or without a JSON decision payload). Third, make missing dependencies loud: if your hook script needs `jq` and it's not installed, that should produce an error message and a non-zero exit, not a silent pass-through.
 

@@ -21,7 +21,7 @@ agent_steps:
 
 ## Why this matters
 
-`PreToolUse` is the only mechanism that can stop a tool call *before* it happens. Permissions rules can ask the user, but they require human-in-the-loop attention and they only express what the rule language can match. `PreToolUse` runs arbitrary code against the tool input and decides allow, deny, or ask — and it does so in milliseconds, deterministically, every time. That's the right shape for guarding operations whose failure mode is destructive or irreversible.
+`PreToolUse` is the only mechanism that can stop a tool call *before* it happens. Permissions rules can ask the user, but they require human-in-the-loop attention and they only express what the rule language can match. `PreToolUse` runs arbitrary code against the tool input and decides allow, deny, or ask — and it does so in milliseconds, deterministically, every time. That suits operations whose failure mode is destructive or irreversible.
 
 The canonical use cases are exactly the ones whose damage you can't take back: `rm -rf` against the wrong path, `DROP TABLE` against prod, `git push --force` to a protected branch, an MCP tool that mutates a shared resource. For each, a `PreToolUse` hook can inspect the tool's input, recognize the dangerous shape, and deny it with a reason Claude can read and respond to. Claude doesn't have to remember the rule; the harness enforces it.
 

@@ -46,7 +46,7 @@ CLAUDE.md — the right place for taste-level guidance the model usually follows
 - Prefer creating new commits over amending pushed commits.
 ```
 
-Hook — the right place when the cost of "usually follows" is too high.
+Hook — for when the cost of "usually follows" is too high.
 
 ```json
 {
