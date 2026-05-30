@@ -76,7 +76,6 @@ Then invoke it:
 /effective-claude-code                     # audit your project, find gaps
 /effective-claude-code apply hooks         # apply one chapter
 /effective-claude-code apply item-30       # apply specific items
-/effective-claude-code apply all           # apply all 63 stable items
 ```
 
 ---
