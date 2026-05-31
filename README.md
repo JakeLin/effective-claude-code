@@ -14,23 +14,27 @@ A taste:
 
 ## See it in action
 
-Run the bundled skill on any project and Claude audits your setup, identifies gaps, and writes clean rules after you confirm:
+<video src="https://github.com/user-attachments/assets/d6bfd87e-4bde-48ec-a175-23776fb106f1" autoplay loop muted playsinline width="100%"></video>
+
+*Invoking `/effective-claude-code` on a real project.*
+
+Claude audits your setup, identifies gaps, and writes clean rules after you confirm:
 
 ```
-> /effective-claude-code apply chapter-1
+> /effective-claude-code
 
-I see a monorepo with a CLAUDE.md and no .claude/rules/.
-The biggest gap is path-specific rules loaded globally.
+Scanned 3 CLAUDE.md files, 2 hooks, 0 rules files.
 
-🟡 Add:
-  • Your frontend architecture rules only apply when editing src/web/ —
-    extract to .claude/rules/frontend.md with paths: ["src/web/**"]
+✅ Memory scoping is correct — team rules in CLAUDE.md, personal config gitignored
+✅ Pre-commit hook catches secrets before they land
 
-💡 Tips:
-  • Auto memory is healthy — promote entries the whole team should see into CLAUDE.md
-  • Scope separation is correct (team rules in CLAUDE.md, private config gitignored)
+🔴 Fix: CLAUDE.md is 340 lines — rules past 200 load every session but rarely apply
+   → Split into .claude/rules/backend.md and .claude/rules/frontend.md with path scopes
 
-Proceed?
+🟡 Add: No permission allowlist in settings.json — Claude prompts on every shell command
+   → Add common read-only commands so routine tasks don't interrupt flow
+
+Apply 2 changes?
 ```
 
 One command. Claude reads your project, triages Items against what's already there, skips what's covered, and proposes only what's missing — no item numbers in your files, no book references, just clean rules applied to your setup.
